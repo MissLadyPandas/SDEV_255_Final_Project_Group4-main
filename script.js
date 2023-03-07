@@ -6,8 +6,9 @@ const coursesRoutes = require('./routes/coursesRoutes');
 //express app
 const app = express();
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+
+// Define base path for routes
+app.use('/course', coursesRoutes);
 
 //connect to mongodb
 const dbURI ='mongodb+srv://kbrumback:test1234@cluster0.kpdgknd.mongodb.net/finalproject?retryWrites=true&w=majority';
@@ -52,9 +53,6 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.render('home', { title: 'Home' });
 });
-
-// courses page route
-app.use('/courses', coursesRoutes);
 
 // create page route
 app.get('/create', (req, res) => {

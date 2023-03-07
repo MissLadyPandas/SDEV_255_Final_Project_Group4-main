@@ -1,78 +1,14 @@
 const express = require('express');
-const Course = require('../models/courses');
+const courseController = require('../controllers/courseController');
 
 // express router
 const router = express.Router();
 
-// render the create course page
-router.get('/create', (req, res) => {
-  res.render('courses/create', { title: 'Create Course' });
-});
+router.get('/', courseController.course_index);
+router.get('/details/:id', courseController.course_details);
+router.get('/create', courseController.course_create_get);
+router.post('/create', courseController.course_create_post);
+router.delete('/:id', courseController.course_delete);
 
-// get all courses
-router.get('/courses', async (req, res, next) => {
-  try {
-    const courses = await Course.find();
-    res.render('courses/index', { title: 'All Courses', courses });
-  } catch (err) {
-    next(err);
-  }
-});
-
-// get single course
-router.get('/courses/:id', async (req, res, next) => {
-  const id = req.params.id;
-  try {
-    const course = await Course.findById(id);
-    if (!course) {
-      return res.status(404).send('Course not found');
-    }
-    res.render('courses/details', { title: 'Course Details', course });
-  } catch (err) {
-    next(err);
-  }
-});
-
-// create a new course
-router.post('/courses', async (req, res, next) => {
-  try {
-    const { name, credits, description } = req.body;
-    if (!name || !description) {
-      throw new Error('Name and description are required');
-    }
-    const newCourse = new Course({ name, credits, description });
-    await newCourse.save();
-    res.redirect('/courses');
-  } catch (err) {
-    next(err);
-  }
-});
-
-// create course using a different route
-router.post('/create-course', async (req, res, next) => {
-  try {
-    const { name, credits, description } = req.body;
-    if (!name || !description) {
-      throw new Error('Name and description are required');
-    }
-    const course = new Course(req.body);
-    await course.save();
-    res.json({ redirect: '/courses' });
-  } catch (err) {
-    next(err);
-  }
-});
-
-// delete a course
-router.post('/courses/:id/delete', async (req, res, next) => {
-  const courseId = req.params.id;
-  try {
-    await Course.findByIdAndDelete(courseId);
-    res.redirect('/courses');
-  } catch (err) {
-    next(err);
-  }
-});
 
 module.exports = router;
-
