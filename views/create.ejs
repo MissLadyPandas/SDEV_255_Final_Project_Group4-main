@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
+<%- include("../partials/head.ejs") %>
+
 <body>
 
-    <%- include('./partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
 
     <div class="create-course content">
         <h2>Create a new course</h2>
@@ -48,7 +48,7 @@
             .catch(err => console.log(err));
         });
     </script>
-    <%- include('./partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>
 
