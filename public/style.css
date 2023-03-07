@@ -320,10 +320,11 @@ margin-left: 5%;
   vertical-align: middle;
   box-sizing: border-box;  
 }
+
 @media (max-width: 768px) {
   nav ul {
     display: none;
-  }
+  }}
 
   .container {
     position: relative;
@@ -501,47 +502,4 @@ margin-left: 5%;
 .form .login-signup {
   margin-top: 30px;
   text-align: center;
-}
-
-.courses.content {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-}
-
-.courses.content h2 {
-font-size: 2em;
-font-weight: bold;
-color: #5335ca;
-}
-
-.courses.content p {
-font-size: 1.2em;
-color: #333;
-line-height: 1.5;
-margin-bottom: 1em;
-}
-
-.courses.content a {
-display: inline-block;
-padding: 10px 20px;
-background-color: #5335ca;
-color: #fff;
-text-decoration: none;
-font-size: 1.2em;
-border-radius: 5px;
-transition: background-color 0.2s ease;
-}
-
-.courses.content a:hover {
-background-color: #150539;
-}
-
-@media (max-width: 768px) {
-.courses.content {
-flex-direction: column;
-}
-
-.courses.content > * {
-width: 100%;
 }

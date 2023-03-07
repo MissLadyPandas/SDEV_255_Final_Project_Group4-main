@@ -16,16 +16,16 @@
           <textarea id="description" name="description" required></textarea>
           <button type="submit" name="submitBtn">Create</button>
         </form>
+      </div>
+
+      <div class="courses content">
         <h2>All Courses</h2>
         <ul>
           <% courses.forEach((course) => { %>
             <li><%= course.name %> - <%= course.credits %> credits</li>
           <% }); %>
         </ul>
-    </div>
-
-    <%- include('./partials/footer.ejs') %>
-
+      </div>
     <script>
         const form = document.querySelector('form');
 
@@ -48,6 +48,7 @@
             .catch(err => console.log(err));
         });
     </script>
-     <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>
+

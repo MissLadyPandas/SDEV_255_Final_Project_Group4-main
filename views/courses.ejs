@@ -7,7 +7,10 @@
     <img src="/pictures/library.jpg" alt="College image" class="img2">
   <div class="courses content">
     <h2>All Courses</h2>
-
+<div>
+    <a href="/courses/create" class="button">Create a new course</a>
+    </div>
+    
     <% if (courses && courses.length > 0) { %>
       <% courses.forEach(course => { %>
 
@@ -18,8 +21,7 @@
     <% } else { %>
       <p>There are no current courses to display...</p>
     <% } %>
-
-    <a href="/courses/create">Create a new course</a>
+    
 
 
 

@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 //connect to mongodb
-const dbURI ='mongodb+srv://kbrumback:test1234@cluster0.kpdgknd.mongodb.net/FinalProject?retryWrites=true&w=majority';
+const dbURI ='mongodb+srv://kbrumback:test1234@cluster0.kpdgknd.mongodb.net/finalproject?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => {
         app.listen(3000, () => {
